@@ -1,8 +1,10 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
 import OrderContainer from './components/OrderContainer';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import { configureStore } from './stores/configureStore';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 
-injectTapEventPlugin();
+var store = configureStore();
 
-ReactDOM.render(<OrderContainer />, document.getElementById('app'))
+var root = <Provider store = { store }><OrderContainer /></Provider>
+render(root, document.getElementById('app'))
