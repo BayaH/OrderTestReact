@@ -1,17 +1,16 @@
 import React from 'react';
 import RaisedButton from 'material-ui/lib/raised-button';
 import TextField from 'material-ui/lib/text-field';
-import $ from 'jquery';
 import { addOrder } from '../actions/OrderActions'
 import { connect } from 'react-redux';
 
 @connect(null, {addOrder})
 export default class AddOrder extends React.Component{
 
-	const propTypes = {
+	static propTypes = {
 		addOrder : PropTypes.func.isRequired
-	}
-	
+	};
+
 	// constructor(props){
 	// 	super(props);
 	// 	this._handleSubmit = this._handleSubmit.bind(this);
@@ -20,8 +19,8 @@ export default class AddOrder extends React.Component{
 	@autobind
 	addOrder(){
 		// let menuType = this.refs.menuType.value;
-		let menuType = $('#menuType').val();
-		let sauce = $('#sauce').val();
+		let menuType = this.refs.menuType.value;
+		let sauce = this.refs.sauce.value;
 		let order = {
 			menuType : menuType,
 			sauce : sauce
@@ -33,7 +32,7 @@ export default class AddOrder extends React.Component{
 
 	render(){
 		return(
-			<div>    
+			<div>
 				<label>Type : </label>
 				<TextField hintText="Menu" id = "menuType"/>
 				<br/>

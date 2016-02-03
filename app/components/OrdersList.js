@@ -24,7 +24,7 @@ import { connect } from 'react-redux';
 })
 export default class OrdersList extends React.Component{
 
-	const propTypes = {
+	static propTypes = {
 		orders : PropTypes.arrayOf(
 			PropTypes.shape({
 				menuType : PropTypes.string.isRequired,
@@ -94,6 +94,6 @@ export default class OrdersList extends React.Component{
 					 </TableBody>
 				</Table>
 			</div>
-		)	
+		)
 	}
 }

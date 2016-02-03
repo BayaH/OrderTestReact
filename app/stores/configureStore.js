@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk';
 
 const reducer = combineReducers({orders});
 
-export default function configureStore{
+export default function configureStore(){
 
 const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 

@@ -1,5 +1,5 @@
 const initialState = {
-	orders = []
+	orders: []
 }
 
 export default function orders(state = initialState, action={}){
@@ -7,7 +7,7 @@ export default function orders(state = initialState, action={}){
 		case AppConstants.ADD_ITEM:
 		return{
 			...state,
-			orders : state.orders.push(action.order);
+			orders : state.orders.push(action.order)
 		};
 		break;
 		default:
