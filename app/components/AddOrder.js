@@ -1,47 +1,41 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import autobind from 'autobind-decorator';
 import RaisedButton from 'material-ui/lib/raised-button';
 import TextField from 'material-ui/lib/text-field';
-import $ from 'jquery';
-import { addOrder } from '../actions/OrderActions'
+import { addOrder } from '../actions/OrderActions';
 import { connect } from 'react-redux';
 
-@connect(null, {addOrder})
-export default class AddOrder extends React.Component{
+@connect(null, { addOrder })
+export default class AddOrder extends React.Component {
+  static propTypes = {
+    addOrder: PropTypes.func.isRequired
+  };
 
-	const propTypes = {
-		addOrder : PropTypes.func.isRequired
-	}
-	
-	// constructor(props){
-	// 	super(props);
-	// 	this._handleSubmit = this._handleSubmit.bind(this);
-	// }
+  @autobind
+  addOrder() {
+    const menuType = this.refs.menuType.getValue();
+    const sauce = this.refs.sauce.getValue();
+    const order = {
+      menuType,
+      sauce
+    };
 
-	@autobind
-	addOrder(){
-		// let menuType = this.refs.menuType.value;
-		let menuType = $('#menuType').val();
-		let sauce = $('#sauce').val();
-		let order = {
-			menuType : menuType,
-			sauce : sauce
-		}
-		this.props.addOrder(order);
-		this.refs.menuType.value = '';
-		this.refs.sauce.value = '';
-	}
+    this.props.addOrder(order);
+    this.refs.menuType.clearValue();
+    this.refs.sauce.clearValue();
+  }
 
-	render(){
-		return(
-			<div>    
+  render() {
+    return (
+			<div>
 				<label>Type : </label>
-				<TextField hintText="Menu" id = "menuType"/>
+				<TextField hintText="Menu" ref="menuType"/>
 				<br/>
 				<label>Sauce : </label>
-				<TextField hintText="Sauce" id = "sauce"/>
+				<TextField hintText="Sauce" ref="sauce"/>
 				<br/>
-				<RaisedButton onClick = {this.addOrder} label="Ajouter" primary={true} />
+				<RaisedButton onClick={this.addOrder} label="Ajouter" primary />
 			</div>
 		);
-	}
+  }
 }
