@@ -1,16 +1,20 @@
-const initialState = {
-	orders: []
-}
+import { AppConstants } from '../constants/AppConstants';
 
-export default function orders(state = initialState, action={}){
-	switch(action.actionType){
-		case AppConstants.ADD_ITEM:
-		return{
-			...state,
-			orders : state.orders.push(action.order)
-		};
-		break;
-		default:
-			return state;
-	}
+const initialState = {
+  orders: []
+};
+
+export default function orders(state = initialState, action = {}) {
+  switch (action.type) {
+    case AppConstants.ADD_ITEM:
+      return {
+        ...state,
+        orders: [
+          ...state.orders,
+          action.order
+        ]
+      };
+    default:
+      return state;
+  }
 }
