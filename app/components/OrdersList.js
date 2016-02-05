@@ -8,7 +8,6 @@ import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import { connect } from 'react-redux';
 
 @connect((state) => {
-  console.log('OrdersList state', state);
   return ({
     orders: state.orders.orders
   });
