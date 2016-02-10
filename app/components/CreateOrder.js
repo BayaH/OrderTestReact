@@ -1,16 +1,14 @@
 import React, { PropTypes } from 'react';
-import Tabs from 'material-ui/lib/tabs/tabs';
-import Tab from 'material-ui/lib/tabs/tab';
-import SwipeableViews from 'react-swipeable-views';
 import { connect } from 'react-redux';
 import { setTabIndex } from '../actions/OrderUi';
 import autobind from 'autobind-decorator';
+import MenuItem from 'material-ui/lib/menus/menu-item';
 
-@connect(state => {
-    return ({
+@connect((state => {
+    return {
       tabIndex: state.orderUi.tabIndex
-    });
-}, { setTabIndex })
+    };
+}), { setTabIndex })
 export default class CreateOrder extends React.Component {
 
   static propTypes = {
@@ -26,30 +24,18 @@ export default class CreateOrder extends React.Component {
   render() {
     return (
       <div>
-        <Tabs onChange={this.handleChange}
-          value={this.props.tabIndex}
-        >
-          <Tab label="Formule" value={0}/>
-          <Tab label="Dessert" value={1}/>
-          <Tab label="Boissons" value={2}/>
-          <Tab label="Supplément" value={3}/>
-        </Tabs>
-        <SwipeableViews index={this.props.tabIndex}
-          onChangeIndex={this.handleChange}
-        >
-          <div>
-            Formules + sauces
-          </div>
-          <div>
-            Desserts
-          </div>
-          <div>
-            Boissons
-          </div>
-          <div>
-            Supplément
-          </div>
-        </SwipeableViews>
+
+        <div className= 'leftMenu'>
+          <MenuItem className="OrderMenuItem">Formule</MenuItem>
+          <MenuItem className="OrderMenuItem">Sauces</MenuItem>
+          <MenuItem className="OrderMenuItem">Desserts</MenuItem>
+          <MenuItem className="OrderMenuItem">Boissons</MenuItem>
+          <MenuItem className="OrderMenuItem">Supplément</MenuItem>
+        </div>
+
+        <div className='createOrder'>
+          Creation de la commande
+        </div>
       </div>
     );
   }

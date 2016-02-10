@@ -4,4 +4,27 @@ body{
   margin-left: auto;
 }
 
+#mainImage{
+  background-image: url(../img/pates.jpg);
+  height:200px;
+}
+
+.leftMenu{
+  width: 21%;
+  background-color: #DEDEDE;
+  float:left;
+  font-family: "roboto","helvetica neue",helvetica,arial,sans-serif;
+  font-weight: 500;
+  line-height: 2em;
+}
+
+.createOrder{
+  background-color: #ECECEC;
+  min-height:241px;
+}
+
+.OrderMenuItem{
+  color: #929292;
+  font-size: 1.3em;
+}
 

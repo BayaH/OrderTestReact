@@ -1,6 +1,6 @@
 import React from 'react';
 import CreateOrder from './CreateOrder';
-import ResumeOrder from './ResumeOrder';
+// import ResumeOrder from './ResumeOrder';
 
 export default class OrderMainContainer extends React.Component {
 
@@ -8,7 +8,6 @@ export default class OrderMainContainer extends React.Component {
     return (
       <div>
         <CreateOrder />
-        <ResumeOrder />
       </div>
       );
   }
