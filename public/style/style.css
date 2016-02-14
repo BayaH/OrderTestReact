@@ -6,12 +6,12 @@ body{
 
 #mainImage{
   background-image: url(../img/pates.jpg);
-  height:200px;
+  height:220px;
 }
 
 .leftMenu{
-  width: 21%;
-  background-color: #DEDEDE;
+  width: 21% !important;
+  background-color: #DEDEDE !important;
   float:left;
   font-family: "roboto","helvetica neue",helvetica,arial,sans-serif;
   font-weight: 500;
@@ -20,11 +20,12 @@ body{
 
 .createOrder{
   background-color: #ECECEC;
-  min-height:241px;
+  min-height:256px;
 }
 
 .OrderMenuItem{
-  color: #929292;
-  font-size: 1.3em;
+  color: #929292 !important;
+  font-size: 1.3em !important;
+  margin-left: 30px;
 }
 

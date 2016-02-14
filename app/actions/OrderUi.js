@@ -1,8 +1,8 @@
 import { AppConstants } from '../constants/AppConstants';
 
-export function setTabIndex(index) {
+export function setStep(step) {
   return {
-    type: AppConstants.CHANGE_TAB,
-    index
+    type: AppConstants.CHANGE_STEP,
+    step
   };
 }

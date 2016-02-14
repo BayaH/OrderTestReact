@@ -1,36 +1,41 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { setTabIndex } from '../actions/OrderUi';
+import { setStep } from '../actions/OrderUi';
 import autobind from 'autobind-decorator';
 import MenuItem from 'material-ui/lib/menus/menu-item';
+import Menu from 'material-ui/lib/menus/menu';
+import { AppConstants } from '../constants/AppConstants'; 
 
 @connect((state => {
     return {
-      tabIndex: state.orderUi.tabIndex
+      activeStep: state.orderUi.activeStep
     };
-}), { setTabIndex })
+}), { setStep })
 export default class CreateOrder extends React.Component {
 
   static propTypes = {
-    tabIndex: PropTypes.number.isRequired,
-    setTabIndex: PropTypes.func.isRequired
+    activeStep: PropTypes.string.isRequired,
+    setStep: PropTypes.func.isRequired
   };
 
   @autobind
-  handleChange(value) {
-    this.props.setTabIndex(value);
+  setStep() {
+    
+    // this.props.setStep(value);
+    alert("on a cliqué sur: ");
   }
 
   render() {
     return (
       <div>
-
-        <div className= 'leftMenu'>
-          <MenuItem className="OrderMenuItem">Formule</MenuItem>
-          <MenuItem className="OrderMenuItem">Sauces</MenuItem>
-          <MenuItem className="OrderMenuItem">Desserts</MenuItem>
-          <MenuItem className="OrderMenuItem">Boissons</MenuItem>
-          <MenuItem className="OrderMenuItem">Supplément</MenuItem>
+        <div>
+          <Menu className='leftMenu'>   
+            <MenuItem className="OrderMenuItem" ref='formule' onTouchTap={this.setStep}>Formule</MenuItem>
+            <MenuItem className="OrderMenuItem" ref='sauce'>Sauces</MenuItem>
+            <MenuItem className="OrderMenuItem">Desserts</MenuItem>
+            <MenuItem className="OrderMenuItem">Boissons</MenuItem>
+            <MenuItem className="OrderMenuItem">Supplément</MenuItem>
+          </Menu>
         </div>
 
         <div className='createOrder'>

@@ -1,15 +1,15 @@
 import { AppConstants } from '../constants/AppConstants';
 
 const initialState = {
-  tabIndex: 0
+  activeStep: AppConstants.FORMULE
 };
 
 export default function orderUi(state = initialState, action = {}) {
   switch (action.type) {
-    case AppConstants.CHANGE_TAB:
+    case AppConstants.CHANGE_STEP:
       return {
         ...state,
-        tabIndex: action.index
+        activeStep: action.step
       };
     default:
       return state;
