@@ -1,9 +1,9 @@
-import React from 'react',
+import React from 'react';
 
 export default class Sauce extends React.Component {
 	
 	render() {
-		return(
+		return (
 			<div>
 				Sauce
 			</div>
