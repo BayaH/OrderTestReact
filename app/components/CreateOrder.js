@@ -7,6 +7,9 @@ import Menu from 'material-ui/lib/menus/menu';
 import { AppConstants } from '../constants/AppConstants'; 
 import Formule from './Formule';
 import Sauce from './Sauce';
+import Dessert from './Dessert';
+import Boisson from './Boisson';
+import Supplement from './Supplement';
 
 @connect((state => {
     return {
@@ -24,12 +27,28 @@ export default class CreateOrder extends React.Component {
   setStep(e, menuItem) {
     
     this.props.setStep(menuItem);
-    alert("on a cliqué sur: "+menuItem);
+  }
+
+  @autobind
+  displayStep() {
+    switch (this.props.activeStep) {
+      case AppConstants.SAUCE:   
+        return  <Sauce />;
+      case AppConstants.DESSERT:   
+        return  <Dessert />;
+      case AppConstants.BOISSON:   
+        return  <Boisson />;
+      case AppConstants.SUPPLEMENT:   
+        return  <Supplement />;
+      default:  
+        return <Formule />;
+   }
   }
 
   render() {
     return (
       <div>
+      {}
         <div>
           <Menu className='leftMenu' onChange={this.setStep}>   
             <MenuItem className="OrderMenuItem" ref='formule' value={AppConstants.FORMULE}>Formule</MenuItem>
@@ -41,12 +60,7 @@ export default class CreateOrder extends React.Component {
         </div>
 
         <div className='createOrder'>
-          {(() => {
-            switch (this.state.activeStep) {
-              case AppConstants.SAUCE:   return  <Sauce />;
-              default:      return <Formule />;
-        }
-      })()}
+          {this.displayStep()}
         </div>
       </div>
     );
